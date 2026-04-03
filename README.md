@@ -1,14 +1,30 @@
-# Project 8: L'Oréal Chatbot
+# L'Oréal Smart Beauty Advisor
 
-L’Oréal is exploring the power of AI, and your job is to showcase what's possible. Your task is to build a chatbot that helps users discover and understand L’Oréal’s extensive range of products—makeup, skincare, haircare, and fragrances—as well as provide personalized routines and recommendations.
+An AI-powered beauty chatbot built for the Glo Career Accelerator — Project 8.
 
-## 🚀 Launch via GitHub Codespaces
+## Live Demo
+[View on GitHub Pages](https://YOUR_USERNAME.github.io/loreal-chatbot)
 
-1. In the GitHub repo, click the **Code** button and select **Open with Codespaces → New codespace**.
-2. Once your codespace is ready, open the `index.html` file via the live preview.
+## Cloudflare Worker Setup
 
-## ☁️ Cloudflare Note
+1. Log in to [dash.cloudflare.com](https://dash.cloudflare.com)
+2. Go to **Workers & Pages** → **Create** → **Worker**
+3. Name: `loreal-chatbot-worker` → Click **Deploy**
+4. Click **Edit Code**, replace everything with contents of `RESOURCE_cloudflare-worker.js`
+5. Click **Save and Deploy**
+6. Go to **Settings** → **Variables and Secrets**
+7. Under **Secrets**: Add `OPENAI_API_KEY` → paste your OpenAI key → Save
+8. Copy your Worker URL
 
-When deploying through Cloudflare, make sure your API request body (in `script.js`) includes a `messages` array and handle the response by extracting `data.choices[0].message.content`.
+## Frontend Setup
 
-Enjoy building your L’Oréal beauty assistant! 💄
+1. Open `script.js`
+2. Replace `WORKER_URL` value with your Cloudflare Worker URL
+3. Commit and push to GitHub
+4. Enable GitHub Pages: Settings → Pages → Branch: main → Save
+
+## Tech Stack
+- **Frontend:** HTML, CSS, Vanilla JavaScript
+- **Backend Proxy:** Cloudflare Workers
+- **AI:** OpenAI GPT-4o / GPT-4o-mini via Chat Completions API
+- **Deployment:** GitHub Pages + Cloudflare Workers

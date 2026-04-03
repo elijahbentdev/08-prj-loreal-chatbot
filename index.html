@@ -1,66 +1,98 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chat Assistant</title>
+    <title>L'ORÉAL | Smart Beauty Advisor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
   </head>
-
   <body>
-    <div class="page-wrapper">
-      <!------- Header / Branding ------->
-      <header class="site-header">
-        <h1 class="site-title">Smart Product Advisor</h1>
-      </header>
+    <!-- HEADER -->
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="logo-area">
+          <!-- If you have loreal-logo.png, use: -->
+          <!-- <img src="assets/loreal-logo.png" alt="L'Oréal" class="logo-img" /> -->
+          <!-- Otherwise, use this styled text logo: -->
+          <span class="logo-text">L'ORÉAL</span>
+          <span class="logo-tagline">PARIS</span>
+        </div>
+        <div class="advisor-label">Smart Beauty Advisor</div>
+      </div>
+    </header>
 
-      <!------- Chat Area ------->
-      <main>
-        <section class="chatbox">
-          <div id="chatWindow" class="chat-window">
-            <!-- messages will be appended here via JS -->
-          </div>
+    <!-- MAIN CHAT AREA -->
+    <main class="chat-wrapper">
+      <!-- User question display (LevelUp: Display User Question) -->
+      <div
+        class="user-question-display"
+        id="userQuestionDisplay"
+        aria-live="polite"
+      >
+        <!-- Populated dynamically -->
+      </div>
 
-          <form id="chatForm" class="chat-form">
-            <label for="userInput" class="visually-hidden">Message</label>
-            <input
-              id="userInput"
-              name="userInput"
-              type="text"
-              placeholder="Ask me about products or routines…"
-              autocomplete="off"
-              required
-            />
-            <button type="submit" id="sendBtn">
-              <span class="material-icons">send</span>
-              <span class="visually-hidden">Send</span>
-            </button>
-          </form>
-        </section>
-      </main>
+      <!-- Chat conversation container (LevelUp: Chat Conversation UI) -->
+      <div
+        class="chat-container"
+        id="chatContainer"
+        role="log"
+        aria-label="Chat conversation"
+        aria-live="polite"
+      >
+        <!-- Welcome message injected by JS on load -->
+      </div>
 
-      <!------- Footer Links ------->
-      <footer class="site-footer">
-        <p>&copy; 2025 Company Name. All rights reserved.</p>
-        <nav>
-          <!-- These URLs are placeholders -->
+      <!-- Typing indicator -->
+      <div class="typing-indicator" id="typingIndicator" hidden>
+        <span></span><span></span><span></span>
+      </div>
+
+      <!-- Input area -->
+      <div class="input-area">
+        <textarea
+          id="userInput"
+          class="chat-input"
+          placeholder="Ask me about skincare, haircare, makeup, or routines…"
+          rows="1"
+          aria-label="Your message"
+        ></textarea>
+        <button id="sendBtn" class="send-btn" aria-label="Send message">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <span>&copy; 2024 L'Oréal. All rights reserved.</span>
+        <nav class="footer-nav">
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Use</a>
-          <a href="#">Contact</a>
+          <a href="#">Contact Us</a>
         </nav>
-      </footer>
-    </div>
+      </div>
+    </footer>
 
-    <!-- secrets.js can be removed when using Cloudflare Workers for API requests -->
-    <script src="secrets.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
