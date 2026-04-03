@@ -163,7 +163,7 @@ async function sendMessage() {
     });
 
     if (!response.ok) {
-      throw new Error(\`Worker responded with status \${response.status}\`);
+      throw new Error(`Worker responded with status ${response.status}`);
     }
 
     const data = await response.json();
@@ -183,7 +183,7 @@ async function sendMessage() {
     console.error('Chat error:', err);
     appendMessage(
       'assistant',
-      '✨ I\\'m having a moment — please try again shortly! If the issue persists, the advisor may be refreshing her palette. 💄'
+        "✨ I'm having a moment — please try again shortly! If the issue persists, the advisor may be refreshing her palette. 💄"
     );
   } finally {
     setLoading(false);
@@ -217,12 +217,11 @@ userInput.addEventListener('input', () => {
  * This gives the chatbot a "first turn" context.
  */
 function init() {
-  const welcomeText = \`✨ Welcome to L'Oréal Paris! I'm your Smart Beauty Advisor, here to help you discover personalized skincare routines, find the perfect makeup match, and explore our full range of haircare and fragrance collections.
+    const welcomeText = `✨ Welcome to L'Oréal Paris! I'm your Smart Beauty Advisor, here to help you discover personalized skincare routines, find the perfect makeup match, and explore our full range of haircare and fragrance collections.
 
 Whether you're looking for your ideal foundation shade, building a skincare routine for your skin type, or curious about our star ingredients — I'm here to help!
 
-**How can I help you discover your beauty today?**\`;
-
+**How can I help you discover your beauty today?**`;
   appendMessage('assistant', welcomeText, true);
 
   // Seed history so the AI "remembers" it gave a welcome
