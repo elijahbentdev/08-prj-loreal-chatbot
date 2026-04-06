@@ -6,36 +6,39 @@
 
 /* --- CSS Variables / Brand Tokens --- */
 :root {
-  --loreal-gold:        #C9A84C;
-  --loreal-dark-gold:   #A07830;
-  --loreal-black:       #1A1A1A;
-  --loreal-white:       #FFFFFF;
-  --loreal-light-gray:  #F5F5F5;
-  --loreal-mid-gray:    #E0E0E0;
-  --loreal-text-dark:   #2C2C2C;
-  --loreal-text-light:  #6B6B6B;
-  --loreal-user-bubble: #1A1A1A;
-  --loreal-ai-bubble:   #FFFFFF;
-  --shadow-soft:        0 2px 12px rgba(0,0,0,0.08);
-  --shadow-card:        0 4px 24px rgba(0,0,0,0.12);
-  --radius-bubble:      18px;
-  --radius-input:       12px;
-  --transition:         0.2s ease;
+  --loreal-gold: #c9a84c;
+  --loreal-dark-gold: #a07830;
+  --loreal-black: #1a1a1a;
+  --loreal-white: #ffffff;
+  --loreal-light-gray: #f5f5f5;
+  --loreal-mid-gray: #e0e0e0;
+  --loreal-text-dark: #2c2c2c;
+  --loreal-text-light: #6b6b6b;
+  --loreal-user-bubble: #1a1a1a;
+  --loreal-ai-bubble: #ffffff;
+  --shadow-soft: 0 2px 12px rgba(0, 0, 0, 0.08);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.12);
+  --radius-bubble: 18px;
+  --radius-input: 12px;
+  --transition: 0.2s ease;
 }
 
 /* --- Reset & Base --- */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
 body {
-  font-family: 'Jost', sans-serif;
+  font-family: "Jost", sans-serif;
   font-weight: 400;
   background: var(--loreal-light-gray);
   color: var(--loreal-text-dark);
@@ -70,13 +73,14 @@ body {
 }
 
 .logo-img {
-  height: 36px;
+  height: 32px;
   width: auto;
   object-fit: contain;
+  filter: brightness(0) invert(1);
 }
 
 .logo-text {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: "Cormorant Garamond", serif;
   font-weight: 700;
   font-size: 26px;
   letter-spacing: 6px;
@@ -85,7 +89,7 @@ body {
 }
 
 .logo-tagline {
-  font-family: 'Jost', sans-serif;
+  font-family: "Jost", sans-serif;
   font-weight: 300;
   font-size: 10px;
   letter-spacing: 4px;
@@ -95,7 +99,7 @@ body {
 }
 
 .advisor-label {
-  font-family: 'Jost', sans-serif;
+  font-family: "Jost", sans-serif;
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 2px;
@@ -123,12 +127,12 @@ body {
   border-left: 3px solid var(--loreal-gold);
   background: rgba(201, 168, 76, 0.06);
   border-radius: 0 8px 8px 0;
-  font-family: 'Jost', sans-serif;
+  font-family: "Jost", sans-serif;
   font-size: 13px;
   font-weight: 500;
   color: var(--loreal-text-light);
   transition: opacity var(--transition);
-  display: none;  /* Hidden when empty */
+  display: none; /* Hidden when empty */
 }
 
 .user-question-display.visible {
@@ -193,14 +197,16 @@ body {
   margin-bottom: 5px;
 }
 
-.message.user .message-meta { color: var(--loreal-dark-gold); }
+.message.user .message-meta {
+  color: var(--loreal-dark-gold);
+}
 
 .bubble {
   padding: 13px 18px;
   border-radius: var(--radius-bubble);
   line-height: 1.65;
   font-size: 15px;
-  font-family: 'Jost', sans-serif;
+  font-family: "Jost", sans-serif;
   font-weight: 400;
   word-break: break-word;
   box-shadow: var(--shadow-soft);
@@ -224,14 +230,14 @@ body {
 
 /* Welcome message special style */
 .message.assistant.welcome .bubble {
-  background: linear-gradient(135deg, #1A1A1A 0%, #2C2422 100%);
+  background: linear-gradient(135deg, #1a1a1a 0%, #2c2422 100%);
   color: var(--loreal-white);
   border: none;
   border-left: 3px solid var(--loreal-gold);
 }
 
 .message.assistant.welcome .bubble p {
-  color: rgba(255,255,255,0.9);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 /* --- Typing Indicator --- */
@@ -242,7 +248,9 @@ body {
   padding: 0 4px;
 }
 
-.typing-indicator[hidden] { display: none; }
+.typing-indicator[hidden] {
+  display: none;
+}
 
 .typing-indicator span {
   width: 7px;
@@ -252,13 +260,27 @@ body {
   animation: bounce 1.2s infinite ease-in-out;
 }
 
-.typing-indicator span:nth-child(1) { animation-delay: 0s; }
-.typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
-.typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+.typing-indicator span:nth-child(1) {
+  animation-delay: 0s;
+}
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
 
 @keyframes bounce {
-  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
-  30% { transform: translateY(-8px); opacity: 1; }
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  30% {
+    transform: translateY(-8px);
+    opacity: 1;
+  }
 }
 
 /* --- Input Area --- */
@@ -271,7 +293,9 @@ body {
   border-radius: var(--radius-input);
   padding: 10px 12px;
   box-shadow: var(--shadow-soft);
-  transition: border-color var(--transition), box-shadow var(--transition);
+  transition:
+    border-color var(--transition),
+    box-shadow var(--transition);
 }
 
 .input-area:focus-within {
@@ -284,7 +308,7 @@ body {
   border: none;
   outline: none;
   resize: none;
-  font-family: 'Jost', sans-serif;
+  font-family: "Jost", sans-serif;
   font-size: 15px;
   font-weight: 400;
   color: var(--loreal-text-dark);
@@ -311,13 +335,16 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  transition:
+    background var(--transition),
+    transform var(--transition),
+    box-shadow var(--transition);
 }
 
 .send-btn:hover:not(:disabled) {
   background: var(--loreal-dark-gold);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(201,168,76,0.35);
+  box-shadow: 0 4px 12px rgba(201, 168, 76, 0.35);
 }
 
 .send-btn:active:not(:disabled) {
@@ -332,7 +359,7 @@ body {
 /* --- Footer --- */
 .site-footer {
   background: var(--loreal-black);
-  border-top: 1px solid rgba(201,168,76,0.3);
+  border-top: 1px solid rgba(201, 168, 76, 0.3);
   padding: 16px 20px;
   margin-top: auto;
 }
@@ -346,8 +373,8 @@ body {
   flex-wrap: wrap;
   gap: 8px;
   font-size: 12px;
-  color: rgba(255,255,255,0.45);
-  font-family: 'Jost', sans-serif;
+  color: rgba(255, 255, 255, 0.45);
+  font-family: "Jost", sans-serif;
   font-weight: 300;
   letter-spacing: 0.5px;
 }
@@ -358,7 +385,7 @@ body {
 }
 
 .footer-nav a {
-  color: rgba(255,255,255,0.45);
+  color: rgba(255, 255, 255, 0.45);
   text-decoration: none;
   transition: color var(--transition);
 }
